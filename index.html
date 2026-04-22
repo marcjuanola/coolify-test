@@ -58,6 +58,12 @@
       text-decoration: none;
     }
 
+    .nav-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
     .nav-links {
       display: flex;
       gap: 2rem;
@@ -72,6 +78,39 @@
     }
 
     .nav-links a:hover { color: var(--ink); }
+
+    /* LANGUAGE SWITCHER */
+    .lang-switcher {
+      display: flex;
+      gap: 0.1rem;
+      border: 1px solid var(--rule);
+      border-radius: 2rem;
+      overflow: hidden;
+      background: var(--white);
+    }
+
+    .lang-switcher button {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.65rem;
+      border: none;
+      background: transparent;
+      color: var(--light);
+      cursor: pointer;
+      transition: background 0.15s, color 0.15s;
+    }
+
+    .lang-switcher button.active {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .lang-switcher button:hover:not(.active) {
+      color: var(--ink);
+    }
 
     /* LAYOUT */
     .container {
@@ -278,9 +317,7 @@
     }
 
     /* CONTACT */
-    #contact {
-      padding-bottom: 8rem;
-    }
+    #contact { padding-bottom: 8rem; }
 
     .contact-block {
       display: grid;
@@ -361,12 +398,8 @@
       gap: 1rem;
     }
 
-    footer p {
-      font-size: 0.8rem;
-      color: var(--light);
-    }
+    footer p { font-size: 0.8rem; color: var(--light); }
 
-    /* RESPONSIVE NAV */
     @media (max-width: 600px) {
       .nav-links { display: none; }
     }
@@ -376,25 +409,30 @@
 
   <nav>
     <a href="#hero" class="nav-name">Marc Juanola</a>
-    <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
+    <div class="nav-right">
+      <ul class="nav-links">
+        <li><a href="#services" data-i18n="nav.services">Services</a></li>
+        <li><a href="#work" data-i18n="nav.work">Work</a></li>
+        <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      </ul>
+      <div class="lang-switcher">
+        <button onclick="setLang('en')" id="btn-en" class="active">EN</button>
+        <button onclick="setLang('ca')" id="btn-ca">CA</button>
+        <button onclick="setLang('es')" id="btn-es">ES</button>
+      </div>
+    </div>
   </nav>
 
   <!-- HERO -->
   <section id="hero">
     <div class="container">
-      <p class="eyebrow">Shopify Consultant · Barcelona</p>
-      <h1>I build online stores that <em>actually sell</em></h1>
-      <p class="hero-sub">
-        E-commerce consultant specialising in Shopify — designing, building and automating stores for small businesses and startups in health, wellness and beauty.
-      </p>
+      <p class="eyebrow" data-i18n="hero.eyebrow">Shopify Consultant · Barcelona</p>
+      <h1 data-i18n-html="hero.h1">I build online stores that <em>actually sell</em></h1>
+      <p class="hero-sub" data-i18n="hero.sub">E-commerce consultant specialising in Shopify — designing, building and automating stores for small businesses and startups in health, wellness and beauty.</p>
       <div class="hero-meta">
-        <span class="badge">Barcelona</span>
-        <span class="badge">Catalan · Spanish · English</span>
-        <span class="badge">Available for new projects</span>
+        <span class="badge" data-i18n="hero.badge1">Barcelona</span>
+        <span class="badge" data-i18n="hero.badge2">Catalan · Spanish · English</span>
+        <span class="badge" data-i18n="hero.badge3">Available for new projects</span>
       </div>
     </div>
   </section>
@@ -404,30 +442,30 @@
   <!-- SERVICES -->
   <section id="services">
     <div class="container">
-      <p class="eyebrow">What I do</p>
-      <h2>End-to-end Shopify builds,<br/>nothing left to chance</h2>
-      <p class="section-intro">From blank slate to a store ready to sell — including post-launch support and retainer packages for ongoing optimisation.</p>
+      <p class="eyebrow" data-i18n="services.eyebrow">What I do</p>
+      <h2 data-i18n-html="services.h2">End-to-end Shopify builds,<br/>nothing left to chance</h2>
+      <p class="section-intro" data-i18n="services.intro">From blank slate to a store ready to sell — including post-launch support and retainer packages for ongoing optimisation.</p>
 
       <div class="services-grid">
         <div class="service-card">
           <p class="service-number">01</p>
-          <h3>Store design &amp; development</h3>
-          <p>Custom Shopify themes built with Liquid, CSS and a sharp eye for UX. Fast, clean and built to convert — not just to look good.</p>
+          <h3 data-i18n="s1.title">Store design &amp; development</h3>
+          <p data-i18n="s1.desc">Custom Shopify themes built with Liquid, CSS and a sharp eye for UX. Fast, clean and built to convert — not just to look good.</p>
         </div>
         <div class="service-card">
           <p class="service-number">02</p>
-          <h3>E-commerce automation</h3>
-          <p>Connecting the tools that run your business: CRMs, booking systems, email marketing and payment flows — so you can focus on growth, not admin.</p>
+          <h3 data-i18n="s2.title">E-commerce automation</h3>
+          <p data-i18n="s2.desc">Connecting the tools that run your business: CRMs, booking systems, email marketing and payment flows — so you can focus on growth, not admin.</p>
         </div>
         <div class="service-card">
           <p class="service-number">03</p>
-          <h3>Marketing &amp; tracking setup</h3>
-          <p>Meta Conversions API, pixel setup and cookie compliance done properly. Know exactly where your customers come from and what's working.</p>
+          <h3 data-i18n="s3.title">Marketing &amp; tracking setup</h3>
+          <p data-i18n="s3.desc">Meta Conversions API, pixel setup and cookie compliance done properly. Know exactly where your customers come from and what's working.</p>
         </div>
         <div class="service-card">
           <p class="service-number">04</p>
-          <h3>Ongoing retainers</h3>
-          <p>Monthly packages for stores that want to keep improving — A/B testing, new automations, performance reviews and technical support.</p>
+          <h3 data-i18n="s4.title">Ongoing retainers</h3>
+          <p data-i18n="s4.desc">Monthly packages for stores that want to keep improving — A/B testing, new automations, performance reviews and technical support.</p>
         </div>
       </div>
 
@@ -449,32 +487,32 @@
   <!-- WORK -->
   <section id="work">
     <div class="container">
-      <p class="eyebrow">Case study</p>
-      <h2>From zero to fully operational</h2>
-      <p class="section-intro">A recent project that shows what a complete end-to-end build looks like in practice.</p>
+      <p class="eyebrow" data-i18n="work.eyebrow">Case study</p>
+      <h2 data-i18n="work.h2">From zero to fully operational</h2>
+      <p class="section-intro" data-i18n="work.intro">A recent project that shows what a complete end-to-end build looks like in practice.</p>
 
       <div class="case-study">
         <div>
-          <p class="cs-label">Project</p>
-          <h3>Barcelona aesthetics centre — full Shopify build</h3>
-          <p>A complete e-commerce build for a health and beauty brand in Barcelona. From custom theme design to post-launch automation, every part of the stack was designed to work together.</p>
+          <p class="cs-label" data-i18n="work.cs.label">Project</p>
+          <h3 data-i18n="work.cs.title">Barcelona aesthetics centre — full Shopify build</h3>
+          <p data-i18n="work.cs.desc">A complete e-commerce build for a health and beauty brand in Barcelona. From custom theme design to post-launch automation, every part of the stack was designed to work together.</p>
         </div>
         <div class="cs-details">
           <div class="cs-item">
-            <h4>Design &amp; development</h4>
-            <p>Custom Shopify theme, full product catalogue, mobile-first UX.</p>
+            <h4 data-i18n="work.cs.d1.title">Design &amp; development</h4>
+            <p data-i18n="work.cs.d1.desc">Custom Shopify theme, full product catalogue, mobile-first UX.</p>
           </div>
           <div class="cs-item">
-            <h4>Integrations</h4>
-            <p>Koibox booking system, Mailchimp automated email flows, Meta Conversions API.</p>
+            <h4 data-i18n="work.cs.d2.title">Integrations</h4>
+            <p data-i18n="work.cs.d2.desc">Koibox booking system, Mailchimp automated email flows, Meta Conversions API.</p>
           </div>
           <div class="cs-item">
-            <h4>Compliance</h4>
-            <p>Cookie consent setup, GDPR-aligned tracking configuration.</p>
+            <h4 data-i18n="work.cs.d3.title">Compliance</h4>
+            <p data-i18n="work.cs.d3.desc">Cookie consent setup, GDPR-aligned tracking configuration.</p>
           </div>
           <div class="cs-item">
-            <h4>Details available on request</h4>
-            <p>Happy to walk through the full project on a call.</p>
+            <h4 data-i18n="work.cs.d4.title">Details available on request</h4>
+            <p data-i18n="work.cs.d4.desc">Happy to walk through the full project on a call.</p>
           </div>
         </div>
       </div>
@@ -486,20 +524,20 @@
   <!-- CONTACT -->
   <section id="contact">
     <div class="container">
-      <p class="eyebrow">Get in touch</p>
-      <h2>Let's talk about your store</h2>
+      <p class="eyebrow" data-i18n="contact.eyebrow">Get in touch</p>
+      <h2 data-i18n="contact.h2">Let's talk about your store</h2>
       <div class="contact-block">
         <div>
-          <p>Whether you're starting from scratch or improving an existing store, I'd love to hear about your project. I work with a small number of clients at a time — so if you're considering working together, reach out early.</p>
-          <a href="mailto:marcjuanola@gmail.com" class="cta-btn">Send me a message →</a>
+          <p data-i18n="contact.desc">Whether you're starting from scratch or improving an existing store, I'd love to hear about your project. I work with a small number of clients at a time — so if you're considering working together, reach out early.</p>
+          <a href="mailto:marcjuanola@gmail.com" class="cta-btn" data-i18n="contact.cta">Send me a message →</a>
         </div>
         <div class="contact-links">
           <div class="contact-link">
-            <span>Email</span>
+            <span data-i18n="contact.email.label">Email</span>
             <a href="mailto:marcjuanola@gmail.com">marcjuanola@gmail.com</a>
           </div>
           <div class="contact-link">
-            <span>Location</span>
+            <span data-i18n="contact.location.label">Location</span>
             <a href="#">Barcelona, Spain</a>
           </div>
         </div>
@@ -509,8 +547,169 @@
 
   <footer>
     <p>© 2026 Marc Juanola</p>
-    <p>Shopify Consultant · Barcelona</p>
+    <p data-i18n="footer.tagline">Shopify Consultant · Barcelona</p>
   </footer>
+
+  <script>
+    const translations = {
+      en: {
+        "nav.services": "Services",
+        "nav.work": "Work",
+        "nav.contact": "Contact",
+        "hero.eyebrow": "Shopify Consultant · Barcelona",
+        "hero.h1": "I build online stores that <em>actually sell</em>",
+        "hero.sub": "E-commerce consultant specialising in Shopify — designing, building and automating stores for small businesses and startups in health, wellness and beauty.",
+        "hero.badge1": "Barcelona",
+        "hero.badge2": "Catalan · Spanish · English",
+        "hero.badge3": "Available for new projects",
+        "services.eyebrow": "What I do",
+        "services.h2": "End-to-end Shopify builds,<br/>nothing left to chance",
+        "services.intro": "From blank slate to a store ready to sell — including post-launch support and retainer packages for ongoing optimisation.",
+        "s1.title": "Store design & development",
+        "s1.desc": "Custom Shopify themes built with Liquid, CSS and a sharp eye for UX. Fast, clean and built to convert — not just to look good.",
+        "s2.title": "E-commerce automation",
+        "s2.desc": "Connecting the tools that run your business: CRMs, booking systems, email marketing and payment flows — so you can focus on growth, not admin.",
+        "s3.title": "Marketing & tracking setup",
+        "s3.desc": "Meta Conversions API, pixel setup and cookie compliance done properly. Know exactly where your customers come from and what's working.",
+        "s4.title": "Ongoing retainers",
+        "s4.desc": "Monthly packages for stores that want to keep improving — A/B testing, new automations, performance reviews and technical support.",
+        "work.eyebrow": "Case study",
+        "work.h2": "From zero to fully operational",
+        "work.intro": "A recent project that shows what a complete end-to-end build looks like in practice.",
+        "work.cs.label": "Project",
+        "work.cs.title": "Barcelona aesthetics centre — full Shopify build",
+        "work.cs.desc": "A complete e-commerce build for a health and beauty brand in Barcelona. From custom theme design to post-launch automation, every part of the stack was designed to work together.",
+        "work.cs.d1.title": "Design & development",
+        "work.cs.d1.desc": "Custom Shopify theme, full product catalogue, mobile-first UX.",
+        "work.cs.d2.title": "Integrations",
+        "work.cs.d2.desc": "Koibox booking system, Mailchimp automated email flows, Meta Conversions API.",
+        "work.cs.d3.title": "Compliance",
+        "work.cs.d3.desc": "Cookie consent setup, GDPR-aligned tracking configuration.",
+        "work.cs.d4.title": "Details available on request",
+        "work.cs.d4.desc": "Happy to walk through the full project on a call.",
+        "contact.eyebrow": "Get in touch",
+        "contact.h2": "Let's talk about your store",
+        "contact.desc": "Whether you're starting from scratch or improving an existing store, I'd love to hear about your project. I work with a small number of clients at a time — so if you're considering working together, reach out early.",
+        "contact.cta": "Send me a message →",
+        "contact.email.label": "Email",
+        "contact.location.label": "Location",
+        "footer.tagline": "Shopify Consultant · Barcelona",
+      },
+      ca: {
+        "nav.services": "Serveis",
+        "nav.work": "Projectes",
+        "nav.contact": "Contacte",
+        "hero.eyebrow": "Consultor Shopify · Barcelona",
+        "hero.h1": "Construeixo botigues en línia que <em>realment venen</em>",
+        "hero.sub": "Consultor d'e-commerce especialitzat en Shopify — dissenyo, construeixo i automatitzo botigues per a petites empreses i startups de salut, benestar i bellesa.",
+        "hero.badge1": "Barcelona",
+        "hero.badge2": "Català · Castellà · Anglès",
+        "hero.badge3": "Disponible per a nous projectes",
+        "services.eyebrow": "El que faig",
+        "services.h2": "Botigues Shopify completes,<br/>sense deixar res a l'atzar",
+        "services.intro": "Des de zero fins a una botiga preparada per vendre — incloent suport post-llançament i paquets de retainer per a una optimització contínua.",
+        "s1.title": "Disseny i desenvolupament",
+        "s1.desc": "Temes Shopify personalitzats amb Liquid, CSS i un ull afinat per a la UX. Ràpids, nets i dissenyats per convertir — no només per quedar bé.",
+        "s2.title": "Automatització d'e-commerce",
+        "s2.desc": "Connectant les eines que fan funcionar el teu negoci: CRMs, sistemes de reserves, email màrqueting i fluxos de pagament — perquè tu et puguis centrar en créixer.",
+        "s3.title": "Màrqueting i seguiment",
+        "s3.desc": "Meta Conversions API, configuració del píxel i compliment de cookies fet correctament. Sàpigues exactament d'on venen els teus clients i què funciona.",
+        "s4.title": "Retainers mensuals",
+        "s4.desc": "Paquets mensuals per a botigues que volen seguir millorant — tests A/B, noves automatitzacions, revisions de rendiment i suport tècnic.",
+        "work.eyebrow": "Cas d'estudi",
+        "work.h2": "De zero a plenament operatiu",
+        "work.intro": "Un projecte recent que mostra com és una implementació completa d'extrem a extrem a la pràctica.",
+        "work.cs.label": "Projecte",
+        "work.cs.title": "Centre d'estètica a Barcelona — implementació Shopify completa",
+        "work.cs.desc": "Una implementació d'e-commerce completa per a una marca de salut i bellesa a Barcelona. Del disseny del tema personalitzat a l'automatització post-llançament, cada part de l'stack es va dissenyar perquè funcionés junta.",
+        "work.cs.d1.title": "Disseny i desenvolupament",
+        "work.cs.d1.desc": "Tema Shopify personalitzat, catàleg de productes complet, UX mobile-first.",
+        "work.cs.d2.title": "Integracions",
+        "work.cs.d2.desc": "Sistema de reserves Koibox, fluxos d'email automatitzats amb Mailchimp, Meta Conversions API.",
+        "work.cs.d3.title": "Compliment normatiu",
+        "work.cs.d3.desc": "Configuració del consentiment de cookies, configuració de seguiment alineada amb el RGPD.",
+        "work.cs.d4.title": "Detalls disponibles a petició",
+        "work.cs.d4.desc": "Encantat de repassar el projecte complet en una trucada.",
+        "contact.eyebrow": "Contacta",
+        "contact.h2": "Parlem de la teva botiga",
+        "contact.desc": "Tant si estàs començant des de zero com si vols millorar una botiga existent, m'encantaria conèixer el teu projecte. Treballo amb un nombre reduït de clients alhora — si estàs considerant treballar junts, posa't en contacte aviat.",
+        "contact.cta": "Envia'm un missatge →",
+        "contact.email.label": "Correu electrònic",
+        "contact.location.label": "Ubicació",
+        "footer.tagline": "Consultor Shopify · Barcelona",
+      },
+      es: {
+        "nav.services": "Servicios",
+        "nav.work": "Proyectos",
+        "nav.contact": "Contacto",
+        "hero.eyebrow": "Consultor Shopify · Barcelona",
+        "hero.h1": "Construyo tiendas online que <em>realmente venden</em>",
+        "hero.sub": "Consultor de e-commerce especializado en Shopify — diseño, construyo y automatizo tiendas para pequeñas empresas y startups de salud, bienestar y belleza.",
+        "hero.badge1": "Barcelona",
+        "hero.badge2": "Catalán · Español · Inglés",
+        "hero.badge3": "Disponible para nuevos proyectos",
+        "services.eyebrow": "Lo que hago",
+        "services.h2": "Tiendas Shopify completas,<br/>nada dejado al azar",
+        "services.intro": "Desde cero hasta una tienda lista para vender — incluyendo soporte post-lanzamiento y paquetes de retainer para optimización continua.",
+        "s1.title": "Diseño y desarrollo",
+        "s1.desc": "Temas Shopify personalizados con Liquid, CSS y un ojo agudo para la UX. Rápidos, limpios y diseñados para convertir — no solo para quedar bien.",
+        "s2.title": "Automatización de e-commerce",
+        "s2.desc": "Conectando las herramientas que hacen funcionar tu negocio: CRMs, sistemas de reservas, email marketing y flujos de pago — para que puedas centrarte en crecer.",
+        "s3.title": "Marketing y seguimiento",
+        "s3.desc": "Meta Conversions API, configuración del píxel y cumplimiento de cookies hecho correctamente. Saber exactamente de dónde vienen tus clientes y qué está funcionando.",
+        "s4.title": "Retainers mensuales",
+        "s4.desc": "Paquetes mensuales para tiendas que quieren seguir mejorando — tests A/B, nuevas automatizaciones, revisiones de rendimiento y soporte técnico.",
+        "work.eyebrow": "Caso de estudio",
+        "work.h2": "De cero a completamente operativo",
+        "work.intro": "Un proyecto reciente que muestra cómo es una implementación completa de extremo a extremo en la práctica.",
+        "work.cs.label": "Proyecto",
+        "work.cs.title": "Centro de estética en Barcelona — implementación Shopify completa",
+        "work.cs.desc": "Una implementación de e-commerce completa para una marca de salud y belleza en Barcelona. Del diseño del tema personalizado a la automatización post-lanzamiento, cada parte del stack fue diseñada para funcionar junta.",
+        "work.cs.d1.title": "Diseño y desarrollo",
+        "work.cs.d1.desc": "Tema Shopify personalizado, catálogo de productos completo, UX mobile-first.",
+        "work.cs.d2.title": "Integraciones",
+        "work.cs.d2.desc": "Sistema de reservas Koibox, flujos de email automatizados con Mailchimp, Meta Conversions API.",
+        "work.cs.d3.title": "Cumplimiento normativo",
+        "work.cs.d3.desc": "Configuración del consentimiento de cookies, configuración de seguimiento alineada con el RGPD.",
+        "work.cs.d4.title": "Detalles disponibles bajo petición",
+        "work.cs.d4.desc": "Encantado de repasar el proyecto completo en una llamada.",
+        "contact.eyebrow": "Contacto",
+        "contact.h2": "Hablemos de tu tienda",
+        "contact.desc": "Tanto si estás empezando desde cero como si quieres mejorar una tienda existente, me encantaría conocer tu proyecto. Trabajo con un número reducido de clientes a la vez — si estás considerando trabajar juntos, escríbeme pronto.",
+        "contact.cta": "Envíame un mensaje →",
+        "contact.email.label": "Correo electrónico",
+        "contact.location.label": "Ubicación",
+        "footer.tagline": "Consultor Shopify · Barcelona",
+      }
+    };
+
+    function setLang(lang) {
+      const t = translations[lang];
+      document.documentElement.lang = lang;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (t[key] !== undefined) el.textContent = t[key];
+      });
+
+      document.querySelectorAll('[data-i18n-html]').forEach(el => {
+        const key = el.getAttribute('data-i18n-html');
+        if (t[key] !== undefined) el.innerHTML = t[key];
+      });
+
+      ['en','ca','es'].forEach(l => {
+        document.getElementById('btn-' + l).classList.toggle('active', l === lang);
+      });
+
+      localStorage.setItem('lang', lang);
+    }
+
+    // Init: use saved lang, or browser lang, or default to 'en'
+    const saved = localStorage.getItem('lang');
+    const browser = navigator.language.slice(0, 2);
+    const initial = saved || (['en','ca','es'].includes(browser) ? browser : 'en');
+    setLang(initial);
+  </script>
 
 </body>
 </html>
