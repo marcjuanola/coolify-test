@@ -316,6 +316,100 @@
       color: var(--mid);
     }
 
+    /* AUTOMATION */
+    #automation h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+    }
+
+    .auto-example {
+      background: var(--white);
+      border: 1px solid var(--rule);
+      padding: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .auto-example-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .auto-example-header h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+      line-height: 1.3;
+    }
+
+    .auto-example-header p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      max-width: 580px;
+      line-height: 1.7;
+    }
+
+    .flow {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .flow-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--bg);
+      border: 1px solid var(--rule);
+      padding: 1.25rem 1.5rem;
+      min-width: 130px;
+      flex: 1;
+    }
+
+    .flow-icon {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .flow-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--mid);
+      text-align: center;
+      line-height: 1.4;
+    }
+
+    .flow-arrow {
+      font-size: 1.2rem;
+      color: var(--light);
+      flex-shrink: 0;
+    }
+
+    .auto-tools-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .auto-more {
+      font-size: 1rem;
+      color: var(--mid);
+      line-height: 1.7;
+      max-width: 620px;
+      border-left: 2px solid var(--accent);
+      padding-left: 1.25rem;
+    }
+
+    @media (max-width: 600px) {
+      .flow { gap: 0.5rem; }
+      .flow-arrow { display: none; }
+      .flow-step { min-width: calc(50% - 0.5rem); flex: none; }
+    }
+
     /* CONTACT */
     #contact { padding-bottom: 8rem; }
 
@@ -413,6 +507,7 @@
       <ul class="nav-links">
         <li><a href="#services" data-i18n="nav.services">Services</a></li>
         <li><a href="#work" data-i18n="nav.work">Work</a></li>
+        <li><a href="#automation" data-i18n="nav.automation">Automation</a></li>
         <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
       </ul>
       <div class="lang-switcher">
@@ -521,6 +616,55 @@
 
   <hr class="rule" />
 
+  <!-- AUTOMATION -->
+  <section id="automation">
+    <div class="container">
+      <p class="eyebrow" data-i18n="auto.eyebrow">Business Automation</p>
+      <h2 data-i18n-html="auto.h2">Eliminating the manual work<br/>that slows your business down</h2>
+      <p class="section-intro" data-i18n="auto.intro">Beyond e-commerce, I help businesses automate internal processes using AI and no-code tools — turning repetitive tasks into hands-free workflows.</p>
+
+      <div class="auto-example">
+        <div class="auto-example-header">
+          <p class="cs-label" data-i18n="auto.ex1.label">Example workflow</p>
+          <h3 data-i18n="auto.ex1.title">From invoice photo to expense sheet — automatically</h3>
+          <p data-i18n="auto.ex1.desc">A business receives supplier invoices by email or photo. Instead of manually entering data into a spreadsheet, an automated pipeline handles the entire process in seconds.</p>
+        </div>
+        <div class="flow">
+          <div class="flow-step">
+            <div class="flow-icon">📷</div>
+            <p class="flow-label" data-i18n="auto.flow.s1">Photo or PDF invoice</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-icon">🤖</div>
+            <p class="flow-label" data-i18n="auto.flow.s2">AI extracts data</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-icon">⚙️</div>
+            <p class="flow-label" data-i18n="auto.flow.s3">Automation validates & routes</p>
+          </div>
+          <div class="flow-arrow">→</div>
+          <div class="flow-step">
+            <div class="flow-icon">📊</div>
+            <p class="flow-label" data-i18n="auto.flow.s4">Expense sheet updated</p>
+          </div>
+        </div>
+        <div class="auto-tools-row">
+          <span class="tag">Claude AI</span>
+          <span class="tag">Make.com</span>
+          <span class="tag">n8n</span>
+          <span class="tag">Google Sheets</span>
+          <span class="tag">Gmail / Email</span>
+        </div>
+      </div>
+
+      <p class="auto-more" data-i18n="auto.more">Every business has processes like this — repetitive, manual and error-prone. I identify them, design the workflow and build the automation. Get in touch to talk through yours.</p>
+    </div>
+  </section>
+
+  <hr class="rule" />
+
   <!-- CONTACT -->
   <section id="contact">
     <div class="container">
@@ -593,6 +737,18 @@
         "contact.cta": "Send me a message →",
         "contact.email.label": "Email",
         "contact.location.label": "Location",
+        "nav.automation": "Automation",
+        "auto.eyebrow": "Business Automation",
+        "auto.h2": "Eliminating the manual work<br/>that slows your business down",
+        "auto.intro": "Beyond e-commerce, I help businesses automate internal processes using AI and no-code tools — turning repetitive tasks into hands-free workflows.",
+        "auto.ex1.label": "Example workflow",
+        "auto.ex1.title": "From invoice photo to expense sheet — automatically",
+        "auto.ex1.desc": "A business receives supplier invoices by email or photo. Instead of manually entering data into a spreadsheet, an automated pipeline handles the entire process in seconds.",
+        "auto.flow.s1": "Photo or PDF invoice",
+        "auto.flow.s2": "AI extracts data",
+        "auto.flow.s3": "Automation validates & routes",
+        "auto.flow.s4": "Expense sheet updated",
+        "auto.more": "Every business has processes like this — repetitive, manual and error-prone. I identify them, design the workflow and build the automation. Get in touch to talk through yours.",
         "footer.tagline": "Shopify Consultant · Barcelona",
       },
       ca: {
@@ -636,6 +792,18 @@
         "contact.cta": "Envia'm un missatge →",
         "contact.email.label": "Correu electrònic",
         "contact.location.label": "Ubicació",
+        "nav.automation": "Automatització",
+        "auto.eyebrow": "Automatització de processos",
+        "auto.h2": "Eliminar la feina manual<br/>que frena el teu negoci",
+        "auto.intro": "Més enllà de l'e-commerce, ajudo empreses a automatitzar processos interns amb IA i eines no-code — convertint tasques repetitives en fluxos de treball automàtics.",
+        "auto.ex1.label": "Exemple de flux",
+        "auto.ex1.title": "De la foto de la factura al full de despeses — automàticament",
+        "auto.ex1.desc": "Una empresa rep factures de proveïdors per correu o foto. En lloc d'introduir dades manualment en un full de càlcul, un pipeline automatitzat gestiona tot el procés en qüestió de segons.",
+        "auto.flow.s1": "Foto o PDF de factura",
+        "auto.flow.s2": "La IA extreu les dades",
+        "auto.flow.s3": "L'automatització valida i enruta",
+        "auto.flow.s4": "Full de despeses actualitzat",
+        "auto.more": "Cada negoci té processos com aquest — repetitius, manuals i propensos a errors. Els identifico, dissenyo el flux de treball i construeixo l'automatització. Posa't en contacte per parlar-ne.",
         "footer.tagline": "Consultor Shopify · Barcelona",
       },
       es: {
@@ -679,6 +847,18 @@
         "contact.cta": "Envíame un mensaje →",
         "contact.email.label": "Correo electrónico",
         "contact.location.label": "Ubicación",
+        "nav.automation": "Automatización",
+        "auto.eyebrow": "Automatización de procesos",
+        "auto.h2": "Eliminar el trabajo manual<br/>que frena tu negocio",
+        "auto.intro": "Más allá del e-commerce, ayudo a empresas a automatizar procesos internos con IA y herramientas no-code — convirtiendo tareas repetitivas en flujos de trabajo automáticos.",
+        "auto.ex1.label": "Ejemplo de flujo",
+        "auto.ex1.title": "De la foto de la factura al hoja de gastos — automáticamente",
+        "auto.ex1.desc": "Una empresa recibe facturas de proveedores por correo o foto. En lugar de introducir datos manualmente en una hoja de cálculo, un pipeline automatizado gestiona todo el proceso en segundos.",
+        "auto.flow.s1": "Foto o PDF de factura",
+        "auto.flow.s2": "La IA extrae los datos",
+        "auto.flow.s3": "La automatización valida y enruta",
+        "auto.flow.s4": "Hoja de gastos actualizada",
+        "auto.more": "Cada negocio tiene procesos como este — repetitivos, manuales y propensos a errores. Los identifico, diseño el flujo de trabajo y construyo la automatización. Escríbeme para hablarlo.",
         "footer.tagline": "Consultor Shopify · Barcelona",
       }
     };
