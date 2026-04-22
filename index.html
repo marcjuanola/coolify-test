@@ -7,61 +7,63 @@
   <meta name="description" content="E-commerce consultant specialising in Shopify. I design, build and automate online stores for small businesses and startups in health, wellness and beauty." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg: #F8F6F3;
-      --white: #FFFFFF;
-      --ink: #1A1A1A;
-      --mid: #5C5C5C;
-      --light: #9A9A9A;
+      --bg: #F5F2EE;
+      --white: #FEFDFB;
+      --ink: #1C1917;
+      --mid: #6B6560;
+      --light: #A8A39D;
       --accent: #1D3C34;
-      --accent-light: #2E5446;
-      --rule: #E4E0DA;
-      --tag-bg: #EEF2EF;
+      --accent2: #C4A882;
+      --rule: #E2DDD8;
+      --tag-bg: #EAE6E0;
       --tag-text: #1D3C34;
+      --hero-bg: #1D3C34;
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'DM Sans', sans-serif;
       background: var(--bg);
       color: var(--ink);
       font-size: 16px;
       line-height: 1.6;
       -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
     }
 
-    /* NAV */
+    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
       z-index: 100;
-      background: rgba(248, 246, 243, 0.92);
-      backdrop-filter: blur(10px);
+      background: rgba(245, 242, 238, 0.94);
+      backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--rule);
-      padding: 0 2rem;
-      height: 60px;
+      padding: 0 2.5rem;
+      height: 58px;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
 
     .nav-name {
-      font-size: 0.9rem;
-      font-weight: 500;
-      letter-spacing: 0.02em;
+      font-family: 'DM Serif Display', serif;
+      font-size: 1rem;
       color: var(--ink);
       text-decoration: none;
+      letter-spacing: 0.01em;
     }
 
     .nav-right {
       display: flex;
       align-items: center;
-      gap: 2rem;
+      gap: 2.5rem;
     }
 
     .nav-links {
@@ -71,7 +73,10 @@
     }
 
     .nav-links a {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
       color: var(--mid);
       text-decoration: none;
       transition: color 0.2s;
@@ -79,23 +84,21 @@
 
     .nav-links a:hover { color: var(--ink); }
 
-    /* LANGUAGE SWITCHER */
     .lang-switcher {
       display: flex;
-      gap: 0.1rem;
+      gap: 0;
       border: 1px solid var(--rule);
-      border-radius: 2rem;
+      border-radius: 3px;
       overflow: hidden;
-      background: var(--white);
     }
 
     .lang-switcher button {
-      font-family: 'Inter', sans-serif;
-      font-size: 0.72rem;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.7rem;
       font-weight: 500;
-      letter-spacing: 0.06em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 0.3rem 0.65rem;
+      padding: 0.3rem 0.6rem;
       border: none;
       background: transparent;
       color: var(--light);
@@ -108,105 +111,308 @@
       color: #fff;
     }
 
-    .lang-switcher button:hover:not(.active) {
-      color: var(--ink);
-    }
+    .lang-switcher button:hover:not(.active) { color: var(--ink); }
 
-    /* LAYOUT */
-    .container {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
-
-    section { padding: 6rem 0; }
-
-    hr.rule {
-      border: none;
-      border-top: 1px solid var(--rule);
-      margin: 0;
-    }
-
-    /* HERO */
+    /* ── HERO ── */
     #hero {
-      padding-top: 140px;
-      padding-bottom: 6rem;
+      background: var(--hero-bg);
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+      padding-top: 58px;
+    }
+
+    .hero-left {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6rem 3rem 6rem 4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-right {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    /* Large decorative letterform */
+    .hero-deco {
+      position: absolute;
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(28rem, 35vw, 42rem);
+      line-height: 0.85;
+      color: rgba(255,255,255,0.04);
+      right: -4rem;
+      bottom: -4rem;
+      user-select: none;
+      pointer-events: none;
+      letter-spacing: -0.05em;
+    }
+
+    /* Animated grid lines */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+
+    /* Photo card */
+    .photo-card {
+      position: relative;
+      z-index: 2;
+      width: 280px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 2px;
+      transform: rotate(1.5deg);
+      transition: transform 0.4s ease;
+    }
+
+    .photo-card:hover { transform: rotate(0deg) scale(1.02); }
+
+    .photo-inner {
+      background: linear-gradient(135deg, #2E5446 0%, #1D3C34 40%, #162E28 100%);
+      aspect-ratio: 3/4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .photo-initials {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -60%);
+      font-family: 'DM Serif Display', serif;
+      font-size: 6rem;
+      color: rgba(255,255,255,0.15);
+      letter-spacing: -0.05em;
+      line-height: 1;
+    }
+
+    .photo-label {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .photo-label p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 0.25rem;
+    }
+
+    .photo-label strong {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.85);
+      font-weight: 400;
+    }
+
+    .photo-caption {
+      position: absolute;
+      bottom: -2.5rem;
+      right: -1rem;
+      background: var(--accent2);
+      color: var(--ink);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 0.4rem 0.85rem;
+      transform: rotate(-1.5deg);
     }
 
     .eyebrow {
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       font-weight: 500;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--accent);
+      color: var(--accent2);
       margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent2);
     }
 
     h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 5vw, 3.6rem);
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.6rem, 4.5vw, 4rem);
       font-weight: 400;
-      line-height: 1.2;
-      color: var(--ink);
-      margin-bottom: 1.5rem;
-      max-width: 720px;
+      line-height: 1.1;
+      color: #fff;
+      margin-bottom: 1.75rem;
+      letter-spacing: -0.02em;
     }
 
     h1 em {
       font-style: italic;
-      color: var(--accent);
+      color: var(--accent2);
     }
 
     .hero-sub {
-      font-size: 1.1rem;
-      color: var(--mid);
-      max-width: 560px;
-      line-height: 1.7;
-      margin-bottom: 2.5rem;
+      font-size: 1rem;
+      color: rgba(255,255,255,0.55);
+      max-width: 460px;
+      line-height: 1.8;
+      margin-bottom: 3rem;
+      font-weight: 300;
     }
 
-    .hero-meta {
+    .hero-badges {
       display: flex;
-      align-items: center;
-      gap: 1.5rem;
-      flex-wrap: wrap;
+      flex-direction: column;
+      gap: 0.6rem;
     }
 
     .badge {
       display: inline-flex;
       align-items: center;
-      gap: 0.4rem;
-      font-size: 0.8rem;
-      color: var(--light);
+      gap: 0.6rem;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
       letter-spacing: 0.02em;
     }
 
-    .badge::before {
-      content: '';
-      display: inline-block;
-      width: 6px; height: 6px;
+    .badge-dot {
+      width: 5px; height: 5px;
       border-radius: 50%;
-      background: var(--accent);
+      background: var(--accent2);
+      flex-shrink: 0;
     }
 
-    /* SERVICES */
-    #services h2, #work h2, #contact h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+    .badge.available .badge-dot {
+      background: #5ECA8B;
+      box-shadow: 0 0 0 3px rgba(94, 202, 139, 0.2);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(94, 202, 139, 0.2); }
+      50% { box-shadow: 0 0 0 6px rgba(94, 202, 139, 0.1); }
+    }
+
+    /* ── ABOUT STRIP ── */
+    #about {
+      background: var(--white);
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .about-inner {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 5rem 2.5rem;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .about-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--light);
+      padding-top: 0.25rem;
+    }
+
+    .about-content h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 300;
+      line-height: 1.45;
+      color: var(--ink);
+      margin-bottom: 1.25rem;
+    }
+
+    .about-content h2 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .about-content p {
+      font-size: 0.95rem;
+      color: var(--mid);
+      line-height: 1.85;
+      max-width: 580px;
+    }
+
+    /* ── CONTAINER ── */
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 2.5rem;
+    }
+
+    section { padding: 6rem 0; }
+    hr.rule { border: none; border-top: 1px solid var(--rule); }
+
+    /* ── SERVICES ── */
+    #services { background: var(--bg); }
+
+    .section-header {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 5rem;
+      margin-bottom: 4rem;
+      align-items: end;
+    }
+
+    .section-label {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--light);
+      padding-bottom: 0.5rem;
+    }
+
+    .section-header-right h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2rem, 3.5vw, 2.8rem);
       font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
       margin-bottom: 0.75rem;
     }
 
-    .section-intro {
-      font-size: 1rem;
+    .section-header-right p {
+      font-size: 0.95rem;
       color: var(--mid);
-      max-width: 520px;
-      margin-bottom: 3rem;
+      max-width: 480px;
+      line-height: 1.75;
     }
 
-    .services-grid {
+    /* Services — asymmetric grid */
+    .services-layout {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
       gap: 1px;
       background: var(--rule);
       border: 1px solid var(--rule);
@@ -214,277 +420,362 @@
 
     .service-card {
       background: var(--white);
-      padding: 2rem;
-      transition: background 0.2s;
+      padding: 2.5rem;
+      position: relative;
+      transition: background 0.25s;
     }
 
-    .service-card:hover { background: #FDFCFB; }
+    .service-card:hover { background: #FEFDFB; }
 
-    .service-number {
-      font-size: 0.75rem;
-      color: var(--light);
-      letter-spacing: 0.1em;
-      margin-bottom: 1rem;
-    }
-
-    .service-card h3 {
-      font-size: 1rem;
-      font-weight: 500;
-      margin-bottom: 0.75rem;
-      color: var(--ink);
-    }
-
-    .service-card p {
-      font-size: 0.9rem;
-      color: var(--mid);
-      line-height: 1.6;
-    }
-
-    /* TOOLS */
-    .tools-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 2.5rem;
-    }
-
-    .tag {
-      font-size: 0.78rem;
-      font-weight: 500;
-      background: var(--tag-bg);
-      color: var(--tag-text);
-      padding: 0.35rem 0.85rem;
-      border-radius: 2rem;
-      letter-spacing: 0.01em;
-    }
-
-    /* CASE STUDY */
-    .case-study {
-      background: var(--white);
-      border: 1px solid var(--rule);
-      padding: 3rem;
+    /* Card spanning full width */
+    .service-card.wide {
+      grid-column: 1 / -1;
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 3rem;
       align-items: start;
     }
 
-    @media (max-width: 640px) {
-      .case-study { grid-template-columns: 1fr; gap: 2rem; }
+    .service-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 3.5rem;
+      color: var(--rule);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+      transition: color 0.25s;
     }
 
-    .cs-label {
-      font-size: 0.75rem;
-      font-weight: 500;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 1rem;
-    }
+    .service-card:hover .service-num { color: var(--accent2); }
 
-    .case-study h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.5rem;
+    .service-card h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.25rem;
       font-weight: 400;
-      margin-bottom: 1rem;
-      line-height: 1.3;
+      margin-bottom: 0.75rem;
+      color: var(--ink);
+      letter-spacing: -0.01em;
     }
 
-    .case-study p {
-      font-size: 0.95rem;
+    .service-card p {
+      font-size: 0.88rem;
       color: var(--mid);
       line-height: 1.7;
     }
 
-    .cs-details {
+    .tools-row {
       display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 2.5rem;
+    }
+
+    .tag {
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: var(--tag-bg);
+      color: var(--tag-text);
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── WORK ── */
+    #work { background: var(--white); }
+
+    .case-study {
+      border: 1px solid var(--rule);
+      overflow: hidden;
+    }
+
+    .cs-top {
+      background: var(--accent);
+      padding: 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: end;
+    }
+
+    .cs-top-label {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 1.25rem;
+    }
+
+    .cs-top h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    .cs-top p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.75;
+      font-weight: 300;
+    }
+
+    .cs-bottom {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--rule);
+    }
+
+    .cs-item {
+      background: var(--white);
+      padding: 2rem 2rem;
     }
 
     .cs-item h4 {
-      font-size: 0.78rem;
-      font-weight: 600;
-      letter-spacing: 0.08em;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
       color: var(--light);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.5rem;
     }
 
     .cs-item p {
-      font-size: 0.9rem;
+      font-size: 0.88rem;
       color: var(--mid);
+      line-height: 1.65;
     }
 
-    /* AUTOMATION */
-    #automation h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-      font-weight: 400;
-      margin-bottom: 0.75rem;
-    }
+    /* ── AUTOMATION ── */
+    #automation { background: var(--bg); }
 
     .auto-example {
       background: var(--white);
       border: 1px solid var(--rule);
-      padding: 3rem;
-      margin-bottom: 2.5rem;
+      overflow: hidden;
     }
 
-    .auto-example-header {
-      margin-bottom: 2.5rem;
+    .auto-header {
+      padding: 3rem 3rem 2.5rem;
+      border-bottom: 1px solid var(--rule);
     }
 
-    .auto-example-header h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
+    .auto-header h3 {
+      font-family: 'DM Serif Display', serif;
+      font-size: 1.5rem;
       font-weight: 400;
+      letter-spacing: -0.02em;
       margin-bottom: 0.75rem;
-      line-height: 1.3;
     }
 
-    .auto-example-header p {
-      font-size: 0.95rem;
+    .auto-header p {
+      font-size: 0.9rem;
       color: var(--mid);
-      max-width: 580px;
-      line-height: 1.7;
+      max-width: 560px;
+      line-height: 1.75;
     }
 
-    .flow {
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      margin-bottom: 2rem;
+    .flow-diagram {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--rule);
     }
 
     .flow-step {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 0.6rem;
-      background: var(--bg);
-      border: 1px solid var(--rule);
-      padding: 1.25rem 1.5rem;
-      min-width: 130px;
-      flex: 1;
-    }
-
-    .flow-icon {
-      font-size: 1.5rem;
-      line-height: 1;
-    }
-
-    .flow-label {
-      font-size: 0.8rem;
-      font-weight: 500;
-      color: var(--mid);
-      text-align: center;
-      line-height: 1.4;
-    }
-
-    .flow-arrow {
-      font-size: 1.2rem;
-      color: var(--light);
-      flex-shrink: 0;
-    }
-
-    .auto-tools-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-    }
-
-    .auto-more {
-      font-size: 1rem;
-      color: var(--mid);
-      line-height: 1.7;
-      max-width: 620px;
-      border-left: 2px solid var(--accent);
-      padding-left: 1.25rem;
-    }
-
-    @media (max-width: 600px) {
-      .flow { gap: 0.5rem; }
-      .flow-arrow { display: none; }
-      .flow-step { min-width: calc(50% - 0.5rem); flex: none; }
-    }
-
-    /* CONTACT */
-    #contact { padding-bottom: 8rem; }
-
-    .contact-block {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      align-items: start;
-    }
-
-    @media (max-width: 640px) {
-      .contact-block { grid-template-columns: 1fr; gap: 2.5rem; }
-    }
-
-    .contact-block p {
-      font-size: 1rem;
-      color: var(--mid);
-      line-height: 1.7;
-    }
-
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      margin-top: 1rem;
-    }
-
-    .contact-link {
-      display: flex;
-      flex-direction: column;
-      gap: 0.15rem;
-    }
-
-    .contact-link span {
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--light);
-      font-weight: 500;
-    }
-
-    .contact-link a {
-      font-size: 0.95rem;
-      color: var(--ink);
-      text-decoration: none;
-      border-bottom: 1px solid var(--rule);
-      padding-bottom: 0.1rem;
-      transition: border-color 0.2s, color 0.2s;
-      width: fit-content;
-    }
-
-    .contact-link a:hover {
-      color: var(--accent);
-      border-color: var(--accent);
-    }
-
-    .cta-btn {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.85rem 2rem;
-      background: var(--accent);
-      color: #fff;
-      font-size: 0.88rem;
-      font-weight: 500;
-      text-decoration: none;
-      letter-spacing: 0.03em;
+      background: var(--white);
+      padding: 2rem 1.75rem;
+      position: relative;
       transition: background 0.2s;
     }
 
-    .cta-btn:hover { background: var(--accent-light); }
+    .flow-step:hover { background: #FAFAF8; }
 
-    /* FOOTER */
-    footer {
+    .flow-step-num {
+      font-family: 'DM Serif Display', serif;
+      font-size: 2.5rem;
+      color: var(--rule);
+      line-height: 1;
+      margin-bottom: 1rem;
+      transition: color 0.2s;
+    }
+
+    .flow-step:hover .flow-step-num { color: var(--accent2); }
+
+    .flow-step-icon {
+      font-size: 1.6rem;
+      margin-bottom: 0.75rem;
+      line-height: 1;
+    }
+
+    .flow-step h4 {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.35rem;
+      line-height: 1.3;
+    }
+
+    .flow-step p {
+      font-size: 0.8rem;
+      color: var(--light);
+      line-height: 1.5;
+    }
+
+    /* Arrow between steps */
+    .flow-step:not(:last-child)::after {
+      content: '→';
+      position: absolute;
+      right: -0.6rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--light);
+      font-size: 0.9rem;
+      z-index: 2;
+      background: var(--rule);
+      width: 1.2rem;
+      text-align: center;
+    }
+
+    .auto-footer {
+      padding: 2rem 3rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
       border-top: 1px solid var(--rule);
-      padding: 2rem;
+    }
+
+    .auto-footer p {
+      font-size: 0.88rem;
+      color: var(--mid);
+      font-style: italic;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      max-width: 480px;
+    }
+
+    /* ── CONTACT ── */
+    #contact {
+      background: var(--accent);
+      padding-bottom: 0;
+    }
+
+    #contact .container { padding-bottom: 6rem; }
+
+    .contact-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .contact-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 24px;
+      height: 1px;
+      background: var(--accent2);
+    }
+
+    #contact h2 {
+      font-family: 'DM Serif Display', serif;
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      color: #fff;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+
+    #contact h2 em {
+      font-style: italic;
+      color: rgba(255,255,255,0.45);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 340px;
+      gap: 5rem;
+      align-items: start;
+      padding-top: 3.5rem;
+    }
+
+    .contact-desc {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      max-width: 440px;
+    }
+
+    .cta-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2rem;
+      background: var(--accent2);
+      color: var(--ink);
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .cta-btn:hover {
+      background: #D4B892;
+      transform: translateY(-1px);
+    }
+
+    .contact-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 2.5rem;
+    }
+
+    .contact-item {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-item:first-child { padding-top: 0; }
+    .contact-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+    .contact-item span {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .contact-item a, .contact-item p {
+      font-size: 0.92rem;
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-item a:hover { color: var(--accent2); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--accent);
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 1.75rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -492,15 +783,54 @@
       gap: 1rem;
     }
 
-    footer p { font-size: 0.8rem; color: var(--light); }
+    footer p {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.04em;
+    }
 
-    @media (max-width: 600px) {
+    /* ── ENTRANCE ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .fade-up:nth-child(2) { transition-delay: 0.1s; }
+    .fade-up:nth-child(3) { transition-delay: 0.2s; }
+    .fade-up:nth-child(4) { transition-delay: 0.3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 760px) {
+      #hero { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .hero-left { padding: 5rem 2rem 4rem; }
+      .about-inner,
+      .section-header { grid-template-columns: 1fr; gap: 1.5rem; }
+      .services-layout { grid-template-columns: 1fr; }
+      .service-card.wide { grid-column: 1; grid-template-columns: 1fr; }
+      .cs-top { grid-template-columns: 1fr; gap: 1.5rem; }
+      .cs-bottom { grid-template-columns: 1fr 1fr; }
+      .flow-diagram { grid-template-columns: 1fr 1fr; }
+      .flow-step::after { display: none; }
+      .contact-layout { grid-template-columns: 1fr; gap: 2.5rem; }
       .nav-links { display: none; }
+    }
+
+    @media (max-width: 480px) {
+      .cs-bottom { grid-template-columns: 1fr; }
+      .flow-diagram { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
 
+  <!-- NAV -->
   <nav>
     <a href="#hero" class="nav-name">Marc Juanola</a>
     <div class="nav-right">
@@ -520,14 +850,39 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="container">
+    <div class="hero-left">
       <p class="eyebrow" data-i18n="hero.eyebrow">Shopify Consultant · Barcelona</p>
       <h1 data-i18n-html="hero.h1">I build online stores that <em>actually sell</em></h1>
       <p class="hero-sub" data-i18n="hero.sub">E-commerce consultant specialising in Shopify — designing, building and automating stores for small businesses and startups in health, wellness and beauty.</p>
-      <div class="hero-meta">
-        <span class="badge" data-i18n="hero.badge1">Barcelona</span>
-        <span class="badge" data-i18n="hero.badge2">Catalan · Spanish · English</span>
-        <span class="badge" data-i18n="hero.badge3">Available for new projects</span>
+      <div class="hero-badges">
+        <span class="badge"><span class="badge-dot"></span><span data-i18n="hero.badge1">Barcelona</span></span>
+        <span class="badge"><span class="badge-dot"></span><span data-i18n="hero.badge2">Catalan · Spanish · English</span></span>
+        <span class="badge available"><span class="badge-dot"></span><span data-i18n="hero.badge3">Available for new projects</span></span>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-grid"></div>
+      <div class="hero-deco">M</div>
+      <div class="photo-card">
+        <div class="photo-inner">
+          <div class="photo-initials">MJ</div>
+          <div class="photo-label">
+            <p data-i18n="photo.sub">Shopify Consultant</p>
+            <strong>Marc Juanola</strong>
+          </div>
+        </div>
+        <div class="photo-caption" data-i18n="photo.badge">Barcelona 2026</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="about-inner">
+      <p class="about-label" data-i18n="about.label">About</p>
+      <div class="about-content fade-up">
+        <h2 data-i18n-html="about.h2">Senior IT professional by day,<br/><em>e-commerce builder by conviction.</em></h2>
+        <p data-i18n="about.desc">I discovered a genuine talent for building online stores — not just technically, but from a UX, design, and automation standpoint. I understand the operational reality behind beauty and wellness businesses, which means I build stores that work in the real world, not just in a browser preview. I work with a small number of clients at a time, which means you get full attention and a finished product, not a template handed off.</p>
       </div>
     </div>
   </section>
@@ -537,30 +892,36 @@
   <!-- SERVICES -->
   <section id="services">
     <div class="container">
-      <p class="eyebrow" data-i18n="services.eyebrow">What I do</p>
-      <h2 data-i18n-html="services.h2">End-to-end Shopify builds,<br/>nothing left to chance</h2>
-      <p class="section-intro" data-i18n="services.intro">From blank slate to a store ready to sell — including post-launch support and retainer packages for ongoing optimisation.</p>
+      <div class="section-header">
+        <p class="section-label" data-i18n="services.eyebrow">What I do</p>
+        <div class="section-header-right">
+          <h2 data-i18n-html="services.h2">End-to-end Shopify builds,<br/>nothing left to chance</h2>
+          <p data-i18n="services.intro">From blank slate to a store ready to sell — including post-launch support and retainer packages for ongoing optimisation.</p>
+        </div>
+      </div>
 
-      <div class="services-grid">
+      <div class="services-layout">
         <div class="service-card">
-          <p class="service-number">01</p>
+          <p class="service-num">01</p>
           <h3 data-i18n="s1.title">Store design &amp; development</h3>
           <p data-i18n="s1.desc">Custom Shopify themes built with Liquid, CSS and a sharp eye for UX. Fast, clean and built to convert — not just to look good.</p>
         </div>
         <div class="service-card">
-          <p class="service-number">02</p>
+          <p class="service-num">02</p>
           <h3 data-i18n="s2.title">E-commerce automation</h3>
           <p data-i18n="s2.desc">Connecting the tools that run your business: CRMs, booking systems, email marketing and payment flows — so you can focus on growth, not admin.</p>
         </div>
-        <div class="service-card">
-          <p class="service-number">03</p>
-          <h3 data-i18n="s3.title">Marketing &amp; tracking setup</h3>
-          <p data-i18n="s3.desc">Meta Conversions API, pixel setup and cookie compliance done properly. Know exactly where your customers come from and what's working.</p>
-        </div>
-        <div class="service-card">
-          <p class="service-number">04</p>
-          <h3 data-i18n="s4.title">Ongoing retainers</h3>
-          <p data-i18n="s4.desc">Monthly packages for stores that want to keep improving — A/B testing, new automations, performance reviews and technical support.</p>
+        <div class="service-card wide">
+          <div>
+            <p class="service-num">03</p>
+            <h3 data-i18n="s3.title">Marketing &amp; tracking setup</h3>
+            <p data-i18n="s3.desc">Meta Conversions API, pixel setup and cookie compliance done properly. Know exactly where your customers come from and what's working.</p>
+          </div>
+          <div>
+            <p class="service-num">04</p>
+            <h3 data-i18n="s4.title">Ongoing retainers</h3>
+            <p data-i18n="s4.desc">Monthly packages for stores that want to keep improving — A/B testing, new automations, performance reviews and technical support.</p>
+          </div>
         </div>
       </div>
 
@@ -573,6 +934,7 @@
         <span class="tag">Koibox</span>
         <span class="tag">Meta CAPI</span>
         <span class="tag">CSS / UX</span>
+        <span class="tag">GDPR</span>
       </div>
     </div>
   </section>
@@ -582,17 +944,23 @@
   <!-- WORK -->
   <section id="work">
     <div class="container">
-      <p class="eyebrow" data-i18n="work.eyebrow">Case study</p>
-      <h2 data-i18n="work.h2">From zero to fully operational</h2>
-      <p class="section-intro" data-i18n="work.intro">A recent project that shows what a complete end-to-end build looks like in practice.</p>
-
-      <div class="case-study">
-        <div>
-          <p class="cs-label" data-i18n="work.cs.label">Project</p>
-          <h3 data-i18n="work.cs.title">Barcelona aesthetics centre — full Shopify build</h3>
-          <p data-i18n="work.cs.desc">A complete e-commerce build for a health and beauty brand in Barcelona. From custom theme design to post-launch automation, every part of the stack was designed to work together.</p>
+      <div class="section-header">
+        <p class="section-label" data-i18n="work.eyebrow">Case study</p>
+        <div class="section-header-right">
+          <h2 data-i18n="work.h2">From zero to fully operational</h2>
+          <p data-i18n="work.intro">A recent project that shows what a complete end-to-end build looks like in practice.</p>
         </div>
-        <div class="cs-details">
+      </div>
+
+      <div class="case-study fade-up">
+        <div class="cs-top">
+          <div>
+            <p class="cs-top-label" data-i18n="work.cs.label">Project</p>
+            <h3 data-i18n="work.cs.title">Barcelona aesthetics centre — full Shopify build</h3>
+          </div>
+          <p data-i18n="work.cs.desc">A complete e-commerce build for a health and beauty brand in Barcelona. From custom theme design to post-launch automation, every part of the stack was designed to work together from day one.</p>
+        </div>
+        <div class="cs-bottom">
           <div class="cs-item">
             <h4 data-i18n="work.cs.d1.title">Design &amp; development</h4>
             <p data-i18n="work.cs.d1.desc">Custom Shopify theme, full product catalogue, mobile-first UX.</p>
@@ -606,7 +974,7 @@
             <p data-i18n="work.cs.d3.desc">Cookie consent setup, GDPR-aligned tracking configuration.</p>
           </div>
           <div class="cs-item">
-            <h4 data-i18n="work.cs.d4.title">Details available on request</h4>
+            <h4 data-i18n="work.cs.d4.title">Details on request</h4>
             <p data-i18n="work.cs.d4.desc">Happy to walk through the full project on a call.</p>
           </div>
         </div>
@@ -619,70 +987,85 @@
   <!-- AUTOMATION -->
   <section id="automation">
     <div class="container">
-      <p class="eyebrow" data-i18n="auto.eyebrow">Business Automation</p>
-      <h2 data-i18n-html="auto.h2">Eliminating the manual work<br/>that slows your business down</h2>
-      <p class="section-intro" data-i18n="auto.intro">Beyond e-commerce, I help businesses automate internal processes using AI and no-code tools — turning repetitive tasks into hands-free workflows.</p>
-
-      <div class="auto-example">
-        <div class="auto-example-header">
-          <p class="cs-label" data-i18n="auto.ex1.label">Example workflow</p>
-          <h3 data-i18n="auto.ex1.title">From invoice photo to expense sheet — automatically</h3>
-          <p data-i18n="auto.ex1.desc">A business receives supplier invoices by email or photo. Instead of manually entering data into a spreadsheet, an automated pipeline handles the entire process in seconds.</p>
-        </div>
-        <div class="flow">
-          <div class="flow-step">
-            <div class="flow-icon">📷</div>
-            <p class="flow-label" data-i18n="auto.flow.s1">Photo or PDF invoice</p>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step">
-            <div class="flow-icon">🤖</div>
-            <p class="flow-label" data-i18n="auto.flow.s2">AI extracts data</p>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step">
-            <div class="flow-icon">⚙️</div>
-            <p class="flow-label" data-i18n="auto.flow.s3">Automation validates & routes</p>
-          </div>
-          <div class="flow-arrow">→</div>
-          <div class="flow-step">
-            <div class="flow-icon">📊</div>
-            <p class="flow-label" data-i18n="auto.flow.s4">Expense sheet updated</p>
-          </div>
-        </div>
-        <div class="auto-tools-row">
-          <span class="tag">Claude AI</span>
-          <span class="tag">Make.com</span>
-          <span class="tag">n8n</span>
-          <span class="tag">Google Sheets</span>
-          <span class="tag">Gmail / Email</span>
+      <div class="section-header">
+        <p class="section-label" data-i18n="auto.eyebrow">Automation</p>
+        <div class="section-header-right">
+          <h2 data-i18n-html="auto.h2">Eliminating the manual work<br/>that slows your business down</h2>
+          <p data-i18n="auto.intro">Beyond e-commerce, I help businesses automate internal processes using AI and no-code tools — turning repetitive tasks into hands-free workflows.</p>
         </div>
       </div>
 
-      <p class="auto-more" data-i18n="auto.more">Every business has processes like this — repetitive, manual and error-prone. I identify them, design the workflow and build the automation. Get in touch to talk through yours.</p>
+      <div class="auto-example fade-up">
+        <div class="auto-header">
+          <p class="cs-top-label" style="color:var(--accent2); background:none; padding:0; margin-bottom:0.75rem;" data-i18n="auto.ex1.label">Example workflow</p>
+          <h3 data-i18n="auto.ex1.title">From invoice photo to expense sheet — automatically</h3>
+          <p data-i18n="auto.ex1.desc">A business receives supplier invoices by email or photo. Instead of manually entering data into a spreadsheet, an automated pipeline handles the entire process in seconds.</p>
+        </div>
+        <div class="flow-diagram">
+          <div class="flow-step">
+            <div class="flow-step-num">01</div>
+            <div class="flow-step-icon">📄</div>
+            <h4 data-i18n="auto.flow.s1.title">Receive invoice</h4>
+            <p data-i18n="auto.flow.s1.desc">Photo, PDF or email attachment</p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-num">02</div>
+            <div class="flow-step-icon">🤖</div>
+            <h4 data-i18n="auto.flow.s2.title">AI extracts data</h4>
+            <p data-i18n="auto.flow.s2.desc">Supplier, amount, date, VAT</p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-num">03</div>
+            <div class="flow-step-icon">⚙️</div>
+            <h4 data-i18n="auto.flow.s3.title">Validate &amp; route</h4>
+            <p data-i18n="auto.flow.s3.desc">Automation checks and categorises</p>
+          </div>
+          <div class="flow-step">
+            <div class="flow-step-num">04</div>
+            <div class="flow-step-icon">📊</div>
+            <h4 data-i18n="auto.flow.s4.title">Sheet updated</h4>
+            <p data-i18n="auto.flow.s4.desc">Ready for your accountant</p>
+          </div>
+        </div>
+        <div class="auto-footer">
+          <p data-i18n="auto.more">Every business has processes like this. I identify them, design the workflow, and build the automation.</p>
+          <div class="tools-row" style="margin-top:0;">
+            <span class="tag">Claude AI</span>
+            <span class="tag">Make.com</span>
+            <span class="tag">n8n</span>
+            <span class="tag">Google Sheets</span>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
-
-  <hr class="rule" />
 
   <!-- CONTACT -->
   <section id="contact">
     <div class="container">
-      <p class="eyebrow" data-i18n="contact.eyebrow">Get in touch</p>
-      <h2 data-i18n="contact.h2">Let's talk about your store</h2>
-      <div class="contact-block">
+      <p class="contact-eyebrow" data-i18n="contact.eyebrow">Get in touch</p>
+      <h2 data-i18n-html="contact.h2">Let's build something<br/><em>worth selling.</em></h2>
+      <div class="contact-layout">
         <div>
-          <p data-i18n="contact.desc">Whether you're starting from scratch or improving an existing store, I'd love to hear about your project. I work with a small number of clients at a time — so if you're considering working together, reach out early.</p>
+          <p class="contact-desc" data-i18n="contact.desc">Whether you're starting from scratch or improving an existing store, I'd love to hear about your project. I work with a small number of clients at a time — so if you're considering working together, reach out early.</p>
           <a href="mailto:marcjuanola@gmail.com" class="cta-btn" data-i18n="contact.cta">Send me a message →</a>
         </div>
-        <div class="contact-links">
-          <div class="contact-link">
+        <div class="contact-card">
+          <div class="contact-item">
             <span data-i18n="contact.email.label">Email</span>
             <a href="mailto:marcjuanola@gmail.com">marcjuanola@gmail.com</a>
           </div>
-          <div class="contact-link">
+          <div class="contact-item">
             <span data-i18n="contact.location.label">Location</span>
-            <a href="#">Barcelona, Spain</a>
+            <p>Barcelona, Spain</p>
+          </div>
+          <div class="contact-item">
+            <span data-i18n="contact.lang.label">Languages</span>
+            <p data-i18n="contact.lang.value">Catalan · Spanish · English</p>
+          </div>
+          <div class="contact-item">
+            <span data-i18n="contact.avail.label">Availability</span>
+            <p data-i18n="contact.avail.value">Open to new projects</p>
           </div>
         </div>
       </div>
@@ -695,201 +1078,164 @@
   </footer>
 
   <script>
+    /* ── TRANSLATIONS ── */
     const translations = {
       en: {
-        "nav.services": "Services",
-        "nav.work": "Work",
-        "nav.contact": "Contact",
+        "nav.services": "Services", "nav.work": "Work", "nav.automation": "Automation", "nav.contact": "Contact",
         "hero.eyebrow": "Shopify Consultant · Barcelona",
         "hero.h1": "I build online stores that <em>actually sell</em>",
         "hero.sub": "E-commerce consultant specialising in Shopify — designing, building and automating stores for small businesses and startups in health, wellness and beauty.",
-        "hero.badge1": "Barcelona",
-        "hero.badge2": "Catalan · Spanish · English",
-        "hero.badge3": "Available for new projects",
+        "hero.badge1": "Barcelona", "hero.badge2": "Catalan · Spanish · English", "hero.badge3": "Available for new projects",
+        "photo.sub": "Shopify Consultant", "photo.badge": "Barcelona 2026",
+        "about.label": "About",
+        "about.h2": "Senior IT professional by day,<br/><em>e-commerce builder by conviction.</em>",
+        "about.desc": "I discovered a genuine talent for building online stores — not just technically, but from a UX, design, and automation standpoint. I understand the operational reality behind beauty and wellness businesses, which means I build stores that work in the real world, not just in a browser preview. I work with a small number of clients at a time, which means you get full attention and a finished product, not a template handed off.",
         "services.eyebrow": "What I do",
         "services.h2": "End-to-end Shopify builds,<br/>nothing left to chance",
         "services.intro": "From blank slate to a store ready to sell — including post-launch support and retainer packages for ongoing optimisation.",
-        "s1.title": "Store design & development",
-        "s1.desc": "Custom Shopify themes built with Liquid, CSS and a sharp eye for UX. Fast, clean and built to convert — not just to look good.",
-        "s2.title": "E-commerce automation",
-        "s2.desc": "Connecting the tools that run your business: CRMs, booking systems, email marketing and payment flows — so you can focus on growth, not admin.",
-        "s3.title": "Marketing & tracking setup",
-        "s3.desc": "Meta Conversions API, pixel setup and cookie compliance done properly. Know exactly where your customers come from and what's working.",
-        "s4.title": "Ongoing retainers",
-        "s4.desc": "Monthly packages for stores that want to keep improving — A/B testing, new automations, performance reviews and technical support.",
-        "work.eyebrow": "Case study",
-        "work.h2": "From zero to fully operational",
+        "s1.title": "Store design & development", "s1.desc": "Custom Shopify themes built with Liquid, CSS and a sharp eye for UX. Fast, clean and built to convert — not just to look good.",
+        "s2.title": "E-commerce automation", "s2.desc": "Connecting the tools that run your business: CRMs, booking systems, email marketing and payment flows — so you can focus on growth, not admin.",
+        "s3.title": "Marketing & tracking setup", "s3.desc": "Meta Conversions API, pixel setup and cookie compliance done properly. Know exactly where your customers come from and what's working.",
+        "s4.title": "Ongoing retainers", "s4.desc": "Monthly packages for stores that want to keep improving — A/B testing, new automations, performance reviews and technical support.",
+        "work.eyebrow": "Case study", "work.h2": "From zero to fully operational",
         "work.intro": "A recent project that shows what a complete end-to-end build looks like in practice.",
-        "work.cs.label": "Project",
-        "work.cs.title": "Barcelona aesthetics centre — full Shopify build",
-        "work.cs.desc": "A complete e-commerce build for a health and beauty brand in Barcelona. From custom theme design to post-launch automation, every part of the stack was designed to work together.",
-        "work.cs.d1.title": "Design & development",
-        "work.cs.d1.desc": "Custom Shopify theme, full product catalogue, mobile-first UX.",
-        "work.cs.d2.title": "Integrations",
-        "work.cs.d2.desc": "Koibox booking system, Mailchimp automated email flows, Meta Conversions API.",
-        "work.cs.d3.title": "Compliance",
-        "work.cs.d3.desc": "Cookie consent setup, GDPR-aligned tracking configuration.",
-        "work.cs.d4.title": "Details available on request",
-        "work.cs.d4.desc": "Happy to walk through the full project on a call.",
-        "contact.eyebrow": "Get in touch",
-        "contact.h2": "Let's talk about your store",
+        "work.cs.label": "Project", "work.cs.title": "Barcelona aesthetics centre — full Shopify build",
+        "work.cs.desc": "A complete e-commerce build for a health and beauty brand in Barcelona. From custom theme design to post-launch automation, every part of the stack was designed to work together from day one.",
+        "work.cs.d1.title": "Design & development", "work.cs.d1.desc": "Custom Shopify theme, full product catalogue, mobile-first UX.",
+        "work.cs.d2.title": "Integrations", "work.cs.d2.desc": "Koibox booking system, Mailchimp automated email flows, Meta Conversions API.",
+        "work.cs.d3.title": "Compliance", "work.cs.d3.desc": "Cookie consent setup, GDPR-aligned tracking configuration.",
+        "work.cs.d4.title": "Details on request", "work.cs.d4.desc": "Happy to walk through the full project on a call.",
+        "auto.eyebrow": "Automation", "auto.h2": "Eliminating the manual work<br/>that slows your business down",
+        "auto.intro": "Beyond e-commerce, I help businesses automate internal processes using AI and no-code tools — turning repetitive tasks into hands-free workflows.",
+        "auto.ex1.label": "Example workflow", "auto.ex1.title": "From invoice photo to expense sheet — automatically",
+        "auto.ex1.desc": "A business receives supplier invoices by email or photo. Instead of manually entering data into a spreadsheet, an automated pipeline handles the entire process in seconds.",
+        "auto.flow.s1.title": "Receive invoice", "auto.flow.s1.desc": "Photo, PDF or email attachment",
+        "auto.flow.s2.title": "AI extracts data", "auto.flow.s2.desc": "Supplier, amount, date, VAT",
+        "auto.flow.s3.title": "Validate & route", "auto.flow.s3.desc": "Automation checks and categorises",
+        "auto.flow.s4.title": "Sheet updated", "auto.flow.s4.desc": "Ready for your accountant",
+        "auto.more": "Every business has processes like this. I identify them, design the workflow, and build the automation.",
+        "contact.eyebrow": "Get in touch", "contact.h2": "Let's build something<br/><em>worth selling.</em>",
         "contact.desc": "Whether you're starting from scratch or improving an existing store, I'd love to hear about your project. I work with a small number of clients at a time — so if you're considering working together, reach out early.",
         "contact.cta": "Send me a message →",
-        "contact.email.label": "Email",
-        "contact.location.label": "Location",
-        "nav.automation": "Automation",
-        "auto.eyebrow": "Business Automation",
-        "auto.h2": "Eliminating the manual work<br/>that slows your business down",
-        "auto.intro": "Beyond e-commerce, I help businesses automate internal processes using AI and no-code tools — turning repetitive tasks into hands-free workflows.",
-        "auto.ex1.label": "Example workflow",
-        "auto.ex1.title": "From invoice photo to expense sheet — automatically",
-        "auto.ex1.desc": "A business receives supplier invoices by email or photo. Instead of manually entering data into a spreadsheet, an automated pipeline handles the entire process in seconds.",
-        "auto.flow.s1": "Photo or PDF invoice",
-        "auto.flow.s2": "AI extracts data",
-        "auto.flow.s3": "Automation validates & routes",
-        "auto.flow.s4": "Expense sheet updated",
-        "auto.more": "Every business has processes like this — repetitive, manual and error-prone. I identify them, design the workflow and build the automation. Get in touch to talk through yours.",
-        "footer.tagline": "Shopify Consultant · Barcelona",
+        "contact.email.label": "Email", "contact.location.label": "Location",
+        "contact.lang.label": "Languages", "contact.lang.value": "Catalan · Spanish · English",
+        "contact.avail.label": "Availability", "contact.avail.value": "Open to new projects",
+        "footer.tagline": "Shopify Consultant · Barcelona"
       },
       ca: {
-        "nav.services": "Serveis",
-        "nav.work": "Projectes",
-        "nav.contact": "Contacte",
+        "nav.services": "Serveis", "nav.work": "Projectes", "nav.automation": "Automatització", "nav.contact": "Contacte",
         "hero.eyebrow": "Consultor Shopify · Barcelona",
         "hero.h1": "Construeixo botigues en línia que <em>realment venen</em>",
         "hero.sub": "Consultor d'e-commerce especialitzat en Shopify — dissenyo, construeixo i automatitzo botigues per a petites empreses i startups de salut, benestar i bellesa.",
-        "hero.badge1": "Barcelona",
-        "hero.badge2": "Català · Castellà · Anglès",
-        "hero.badge3": "Disponible per a nous projectes",
+        "hero.badge1": "Barcelona", "hero.badge2": "Català · Castellà · Anglès", "hero.badge3": "Disponible per a nous projectes",
+        "photo.sub": "Consultor Shopify", "photo.badge": "Barcelona 2026",
+        "about.label": "Sobre mi",
+        "about.h2": "Professional sènior d'IT de dia,<br/><em>constructor d'e-commerce per convicció.</em>",
+        "about.desc": "He descobert un talent genuí per construir botigues en línia — no només tècnicament, sinó des del punt de vista de la UX, el disseny i l'automatització. Entenc la realitat operativa dels negocis de bellesa i benestar, cosa que significa que construeixo botigues que funcionen al món real. Treballo amb un nombre reduït de clients alhora, de manera que reps atenció plena i un producte acabat.",
         "services.eyebrow": "El que faig",
         "services.h2": "Botigues Shopify completes,<br/>sense deixar res a l'atzar",
-        "services.intro": "Des de zero fins a una botiga preparada per vendre — incloent suport post-llançament i paquets de retainer per a una optimització contínua.",
-        "s1.title": "Disseny i desenvolupament",
-        "s1.desc": "Temes Shopify personalitzats amb Liquid, CSS i un ull afinat per a la UX. Ràpids, nets i dissenyats per convertir — no només per quedar bé.",
-        "s2.title": "Automatització d'e-commerce",
-        "s2.desc": "Connectant les eines que fan funcionar el teu negoci: CRMs, sistemes de reserves, email màrqueting i fluxos de pagament — perquè tu et puguis centrar en créixer.",
-        "s3.title": "Màrqueting i seguiment",
-        "s3.desc": "Meta Conversions API, configuració del píxel i compliment de cookies fet correctament. Sàpigues exactament d'on venen els teus clients i què funciona.",
-        "s4.title": "Retainers mensuals",
-        "s4.desc": "Paquets mensuals per a botigues que volen seguir millorant — tests A/B, noves automatitzacions, revisions de rendiment i suport tècnic.",
-        "work.eyebrow": "Cas d'estudi",
-        "work.h2": "De zero a plenament operatiu",
+        "services.intro": "Des de zero fins a una botiga preparada per vendre — incloent suport post-llançament i paquets de retainer.",
+        "s1.title": "Disseny i desenvolupament", "s1.desc": "Temes Shopify personalitzats amb Liquid, CSS i un ull afinat per a la UX. Ràpids, nets i dissenyats per convertir.",
+        "s2.title": "Automatització d'e-commerce", "s2.desc": "Connectant les eines que fan funcionar el teu negoci: CRMs, sistemes de reserves, email màrqueting i fluxos de pagament.",
+        "s3.title": "Màrqueting i seguiment", "s3.desc": "Meta Conversions API, configuració del píxel i compliment de cookies fet correctament.",
+        "s4.title": "Retainers mensuals", "s4.desc": "Paquets mensuals per a botigues que volen seguir millorant — tests A/B, noves automatitzacions i suport tècnic.",
+        "work.eyebrow": "Cas d'estudi", "work.h2": "De zero a plenament operatiu",
         "work.intro": "Un projecte recent que mostra com és una implementació completa d'extrem a extrem a la pràctica.",
-        "work.cs.label": "Projecte",
-        "work.cs.title": "Centre d'estètica a Barcelona — implementació Shopify completa",
-        "work.cs.desc": "Una implementació d'e-commerce completa per a una marca de salut i bellesa a Barcelona. Del disseny del tema personalitzat a l'automatització post-llançament, cada part de l'stack es va dissenyar perquè funcionés junta.",
-        "work.cs.d1.title": "Disseny i desenvolupament",
-        "work.cs.d1.desc": "Tema Shopify personalitzat, catàleg de productes complet, UX mobile-first.",
-        "work.cs.d2.title": "Integracions",
-        "work.cs.d2.desc": "Sistema de reserves Koibox, fluxos d'email automatitzats amb Mailchimp, Meta Conversions API.",
-        "work.cs.d3.title": "Compliment normatiu",
-        "work.cs.d3.desc": "Configuració del consentiment de cookies, configuració de seguiment alineada amb el RGPD.",
-        "work.cs.d4.title": "Detalls disponibles a petició",
-        "work.cs.d4.desc": "Encantat de repassar el projecte complet en una trucada.",
-        "contact.eyebrow": "Contacta",
-        "contact.h2": "Parlem de la teva botiga",
-        "contact.desc": "Tant si estàs començant des de zero com si vols millorar una botiga existent, m'encantaria conèixer el teu projecte. Treballo amb un nombre reduït de clients alhora — si estàs considerant treballar junts, posa't en contacte aviat.",
+        "work.cs.label": "Projecte", "work.cs.title": "Centre d'estètica a Barcelona — implementació Shopify completa",
+        "work.cs.desc": "Una implementació d'e-commerce completa per a una marca de salut i bellesa a Barcelona. Del disseny del tema personalitzat a l'automatització post-llançament.",
+        "work.cs.d1.title": "Disseny i desenvolupament", "work.cs.d1.desc": "Tema Shopify personalitzat, catàleg complet, UX mobile-first.",
+        "work.cs.d2.title": "Integracions", "work.cs.d2.desc": "Koibox, Mailchimp, Meta Conversions API.",
+        "work.cs.d3.title": "Compliment normatiu", "work.cs.d3.desc": "Consentiment de cookies, seguiment alineat amb el RGPD.",
+        "work.cs.d4.title": "Detalls a petició", "work.cs.d4.desc": "Encantat de repassar el projecte en una trucada.",
+        "auto.eyebrow": "Automatització", "auto.h2": "Eliminar la feina manual<br/>que frena el teu negoci",
+        "auto.intro": "Més enllà de l'e-commerce, ajudo empreses a automatitzar processos interns amb IA i eines no-code.",
+        "auto.ex1.label": "Exemple de flux", "auto.ex1.title": "De la foto de la factura al full de despeses — automàticament",
+        "auto.ex1.desc": "Una empresa rep factures per correu o foto. En lloc d'introduir dades manualment, un pipeline automatitzat gestiona tot el procés en qüestió de segons.",
+        "auto.flow.s1.title": "Rebre factura", "auto.flow.s1.desc": "Foto, PDF o adjunt de correu",
+        "auto.flow.s2.title": "La IA extreu dades", "auto.flow.s2.desc": "Proveïdor, import, data, IVA",
+        "auto.flow.s3.title": "Valida i enruta", "auto.flow.s3.desc": "L'automatització comprova i categoritza",
+        "auto.flow.s4.title": "Full actualitzat", "auto.flow.s4.desc": "Preparat per al teu gestor",
+        "auto.more": "Cada negoci té processos com aquest. Els identifico, dissenyo el flux i construeixo l'automatització.",
+        "contact.eyebrow": "Contacta", "contact.h2": "Construïm alguna cosa<br/><em>que valgui la pena vendre.</em>",
+        "contact.desc": "Tant si estàs començant des de zero com si vols millorar una botiga existent, m'encantaria conèixer el teu projecte. Treballo amb un nombre reduït de clients alhora.",
         "contact.cta": "Envia'm un missatge →",
-        "contact.email.label": "Correu electrònic",
-        "contact.location.label": "Ubicació",
-        "nav.automation": "Automatització",
-        "auto.eyebrow": "Automatització de processos",
-        "auto.h2": "Eliminar la feina manual<br/>que frena el teu negoci",
-        "auto.intro": "Més enllà de l'e-commerce, ajudo empreses a automatitzar processos interns amb IA i eines no-code — convertint tasques repetitives en fluxos de treball automàtics.",
-        "auto.ex1.label": "Exemple de flux",
-        "auto.ex1.title": "De la foto de la factura al full de despeses — automàticament",
-        "auto.ex1.desc": "Una empresa rep factures de proveïdors per correu o foto. En lloc d'introduir dades manualment en un full de càlcul, un pipeline automatitzat gestiona tot el procés en qüestió de segons.",
-        "auto.flow.s1": "Foto o PDF de factura",
-        "auto.flow.s2": "La IA extreu les dades",
-        "auto.flow.s3": "L'automatització valida i enruta",
-        "auto.flow.s4": "Full de despeses actualitzat",
-        "auto.more": "Cada negoci té processos com aquest — repetitius, manuals i propensos a errors. Els identifico, dissenyo el flux de treball i construeixo l'automatització. Posa't en contacte per parlar-ne.",
-        "footer.tagline": "Consultor Shopify · Barcelona",
+        "contact.email.label": "Correu", "contact.location.label": "Ubicació",
+        "contact.lang.label": "Idiomes", "contact.lang.value": "Català · Castellà · Anglès",
+        "contact.avail.label": "Disponibilitat", "contact.avail.value": "Obert a nous projectes",
+        "footer.tagline": "Consultor Shopify · Barcelona"
       },
       es: {
-        "nav.services": "Servicios",
-        "nav.work": "Proyectos",
-        "nav.contact": "Contacto",
+        "nav.services": "Servicios", "nav.work": "Proyectos", "nav.automation": "Automatización", "nav.contact": "Contacto",
         "hero.eyebrow": "Consultor Shopify · Barcelona",
         "hero.h1": "Construyo tiendas online que <em>realmente venden</em>",
         "hero.sub": "Consultor de e-commerce especializado en Shopify — diseño, construyo y automatizo tiendas para pequeñas empresas y startups de salud, bienestar y belleza.",
-        "hero.badge1": "Barcelona",
-        "hero.badge2": "Catalán · Español · Inglés",
-        "hero.badge3": "Disponible para nuevos proyectos",
+        "hero.badge1": "Barcelona", "hero.badge2": "Catalán · Español · Inglés", "hero.badge3": "Disponible para nuevos proyectos",
+        "photo.sub": "Consultor Shopify", "photo.badge": "Barcelona 2026",
+        "about.label": "Sobre mí",
+        "about.h2": "Profesional sènior de IT de día,<br/><em>constructor de e-commerce por convicción.</em>",
+        "about.desc": "He descubierto un talento genuino para construir tiendas online — no solo técnicamente, sino desde el punto de vista de la UX, el diseño y la automatización. Entiendo la realidad operativa de los negocios de belleza y bienestar, lo que significa que construyo tiendas que funcionan en el mundo real. Trabajo con un número reducido de clientes a la vez, lo que significa atención plena y un producto terminado.",
         "services.eyebrow": "Lo que hago",
         "services.h2": "Tiendas Shopify completas,<br/>nada dejado al azar",
-        "services.intro": "Desde cero hasta una tienda lista para vender — incluyendo soporte post-lanzamiento y paquetes de retainer para optimización continua.",
-        "s1.title": "Diseño y desarrollo",
-        "s1.desc": "Temas Shopify personalizados con Liquid, CSS y un ojo agudo para la UX. Rápidos, limpios y diseñados para convertir — no solo para quedar bien.",
-        "s2.title": "Automatización de e-commerce",
-        "s2.desc": "Conectando las herramientas que hacen funcionar tu negocio: CRMs, sistemas de reservas, email marketing y flujos de pago — para que puedas centrarte en crecer.",
-        "s3.title": "Marketing y seguimiento",
-        "s3.desc": "Meta Conversions API, configuración del píxel y cumplimiento de cookies hecho correctamente. Saber exactamente de dónde vienen tus clientes y qué está funcionando.",
-        "s4.title": "Retainers mensuales",
-        "s4.desc": "Paquetes mensuales para tiendas que quieren seguir mejorando — tests A/B, nuevas automatizaciones, revisiones de rendimiento y soporte técnico.",
-        "work.eyebrow": "Caso de estudio",
-        "work.h2": "De cero a completamente operativo",
+        "services.intro": "Desde cero hasta una tienda lista para vender — incluyendo soporte post-lanzamiento y paquetes de retainer.",
+        "s1.title": "Diseño y desarrollo", "s1.desc": "Temas Shopify personalizados con Liquid, CSS y un ojo agudo para la UX. Rápidos, limpios y diseñados para convertir.",
+        "s2.title": "Automatización de e-commerce", "s2.desc": "Conectando las herramientas que hacen funcionar tu negocio: CRMs, sistemas de reservas, email marketing y flujos de pago.",
+        "s3.title": "Marketing y seguimiento", "s3.desc": "Meta Conversions API, configuración del píxel y cumplimiento de cookies hecho correctamente.",
+        "s4.title": "Retainers mensuales", "s4.desc": "Paquetes mensuales para tiendas que quieren seguir mejorando — tests A/B, nuevas automatizaciones y soporte técnico.",
+        "work.eyebrow": "Caso de estudio", "work.h2": "De cero a completamente operativo",
         "work.intro": "Un proyecto reciente que muestra cómo es una implementación completa de extremo a extremo en la práctica.",
-        "work.cs.label": "Proyecto",
-        "work.cs.title": "Centro de estética en Barcelona — implementación Shopify completa",
-        "work.cs.desc": "Una implementación de e-commerce completa para una marca de salud y belleza en Barcelona. Del diseño del tema personalizado a la automatización post-lanzamiento, cada parte del stack fue diseñada para funcionar junta.",
-        "work.cs.d1.title": "Diseño y desarrollo",
-        "work.cs.d1.desc": "Tema Shopify personalizado, catálogo de productos completo, UX mobile-first.",
-        "work.cs.d2.title": "Integraciones",
-        "work.cs.d2.desc": "Sistema de reservas Koibox, flujos de email automatizados con Mailchimp, Meta Conversions API.",
-        "work.cs.d3.title": "Cumplimiento normativo",
-        "work.cs.d3.desc": "Configuración del consentimiento de cookies, configuración de seguimiento alineada con el RGPD.",
-        "work.cs.d4.title": "Detalles disponibles bajo petición",
-        "work.cs.d4.desc": "Encantado de repasar el proyecto completo en una llamada.",
-        "contact.eyebrow": "Contacto",
-        "contact.h2": "Hablemos de tu tienda",
-        "contact.desc": "Tanto si estás empezando desde cero como si quieres mejorar una tienda existente, me encantaría conocer tu proyecto. Trabajo con un número reducido de clientes a la vez — si estás considerando trabajar juntos, escríbeme pronto.",
+        "work.cs.label": "Proyecto", "work.cs.title": "Centro de estética en Barcelona — implementación Shopify completa",
+        "work.cs.desc": "Una implementación de e-commerce completa para una marca de salud y belleza en Barcelona. Del diseño del tema personalizado a la automatización post-lanzamiento.",
+        "work.cs.d1.title": "Diseño y desarrollo", "work.cs.d1.desc": "Tema Shopify personalizado, catálogo completo, UX mobile-first.",
+        "work.cs.d2.title": "Integraciones", "work.cs.d2.desc": "Koibox, Mailchimp, Meta Conversions API.",
+        "work.cs.d3.title": "Cumplimiento normativo", "work.cs.d3.desc": "Consentimiento de cookies, seguimiento alineado con el RGPD.",
+        "work.cs.d4.title": "Detalles bajo petición", "work.cs.d4.desc": "Encantado de repasar el proyecto completo en una llamada.",
+        "auto.eyebrow": "Automatización", "auto.h2": "Eliminar el trabajo manual<br/>que frena tu negocio",
+        "auto.intro": "Más allá del e-commerce, ayudo a empresas a automatizar procesos internos con IA y herramientas no-code.",
+        "auto.ex1.label": "Ejemplo de flujo", "auto.ex1.title": "De la foto de la factura a la hoja de gastos — automáticamente",
+        "auto.ex1.desc": "Una empresa recibe facturas por correo o foto. En lugar de introducir datos manualmente, un pipeline automatizado gestiona todo el proceso en segundos.",
+        "auto.flow.s1.title": "Recibir factura", "auto.flow.s1.desc": "Foto, PDF o adjunto de correo",
+        "auto.flow.s2.title": "La IA extrae datos", "auto.flow.s2.desc": "Proveedor, importe, fecha, IVA",
+        "auto.flow.s3.title": "Valida y enruta", "auto.flow.s3.desc": "La automatización verifica y categoriza",
+        "auto.flow.s4.title": "Hoja actualizada", "auto.flow.s4.desc": "Lista para tu gestor",
+        "auto.more": "Cada negocio tiene procesos como este. Los identifico, diseño el flujo y construyo la automatización.",
+        "contact.eyebrow": "Contacto", "contact.h2": "Construyamos algo<br/><em>que valga la pena vender.</em>",
+        "contact.desc": "Tanto si estás empezando desde cero como si quieres mejorar una tienda existente, me encantaría conocer tu proyecto. Trabajo con un número reducido de clientes a la vez.",
         "contact.cta": "Envíame un mensaje →",
-        "contact.email.label": "Correo electrónico",
-        "contact.location.label": "Ubicación",
-        "nav.automation": "Automatización",
-        "auto.eyebrow": "Automatización de procesos",
-        "auto.h2": "Eliminar el trabajo manual<br/>que frena tu negocio",
-        "auto.intro": "Más allá del e-commerce, ayudo a empresas a automatizar procesos internos con IA y herramientas no-code — convirtiendo tareas repetitivas en flujos de trabajo automáticos.",
-        "auto.ex1.label": "Ejemplo de flujo",
-        "auto.ex1.title": "De la foto de la factura al hoja de gastos — automáticamente",
-        "auto.ex1.desc": "Una empresa recibe facturas de proveedores por correo o foto. En lugar de introducir datos manualmente en una hoja de cálculo, un pipeline automatizado gestiona todo el proceso en segundos.",
-        "auto.flow.s1": "Foto o PDF de factura",
-        "auto.flow.s2": "La IA extrae los datos",
-        "auto.flow.s3": "La automatización valida y enruta",
-        "auto.flow.s4": "Hoja de gastos actualizada",
-        "auto.more": "Cada negocio tiene procesos como este — repetitivos, manuales y propensos a errores. Los identifico, diseño el flujo de trabajo y construyo la automatización. Escríbeme para hablarlo.",
-        "footer.tagline": "Consultor Shopify · Barcelona",
+        "contact.email.label": "Correo", "contact.location.label": "Ubicación",
+        "contact.lang.label": "Idiomas", "contact.lang.value": "Catalán · Español · Inglés",
+        "contact.avail.label": "Disponibilidad", "contact.avail.value": "Abierto a nuevos proyectos",
+        "footer.tagline": "Consultor Shopify · Barcelona"
       }
     };
 
     function setLang(lang) {
       const t = translations[lang];
+      if (!t) return;
       document.documentElement.lang = lang;
-
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (t[key] !== undefined) el.textContent = t[key];
       });
-
       document.querySelectorAll('[data-i18n-html]').forEach(el => {
         const key = el.getAttribute('data-i18n-html');
         if (t[key] !== undefined) el.innerHTML = t[key];
       });
-
       ['en','ca','es'].forEach(l => {
         document.getElementById('btn-' + l).classList.toggle('active', l === lang);
       });
-
       localStorage.setItem('lang', lang);
     }
 
-    // Init: use saved lang, or browser lang, or default to 'en'
     const saved = localStorage.getItem('lang');
     const browser = navigator.language.slice(0, 2);
-    const initial = saved || (['en','ca','es'].includes(browser) ? browser : 'en');
-    setLang(initial);
-  </script>
+    setLang(saved || (['en','ca','es'].includes(browser) ? browser : 'en'));
 
+    /* ── SCROLL ANIMATIONS ── */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+  </script>
 </body>
 </html>
